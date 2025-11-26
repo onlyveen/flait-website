@@ -1,0 +1,28 @@
+@import "tailwindcss";
+
+/* Font Imports */
+@import "./styles/Excon_WEB/css/excon.css";
+@import "./styles/Satoshi_WEB/css/satoshi.css";
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+@theme {
+  /* Color Palette - Available as utilities (bg-primary, text-accent, etc.) */
+  --color-primary: #0640ad;
+  --color-secondary: #254582;
+  --color-accent: #ffe34f;
+  --color-text: #1e1e1e;
+  --color-placeholder: #142141;
+  --color-border: #bbbbbb;
+  --color-bg: #f3faff;
+  --color-white: #ffffff;
+
+  /* Font Families - Available as utilities (font-excon, font-satoshi) */
+  --font-family-excon: "Excon-Variable", "Excon-Regular", "Space Grotesk", "Inter", system-ui, sans-serif;
+  --font-family-satoshi: "Satoshi-Variable", "Satoshi-Regular", "Inter", "Roboto", "Helvetica Neue", "Arial", sans-serif;
+}
+
+@import "./styles/text-styles.css";
