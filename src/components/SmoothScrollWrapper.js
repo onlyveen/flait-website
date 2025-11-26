@@ -27,10 +27,9 @@ export default function SmoothScrollWrapper({ children }) {
     setBodyHeight();
     window.addEventListener("resize", setBodyHeight);
 
-    // Smooth scroll variables
     let scrollY = 0;
     let currentY = 0;
-    const smoothness = 0.95; // 50% faster (was 0.9)
+    const smoothness = 0.95; 
 
     // Set up smooth scroll
     const updateScroll = () => {

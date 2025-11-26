@@ -1,5 +1,4 @@
 import "./globals.css";
-import SmoothScrollWrapper from "@/components/SmoothScrollWrapper";
 
 export const metadata = {
   title: "flAIt - Your AI Travel Manager on WhatsApp",
@@ -13,7 +12,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className="antialiased bg-bg">
-        <SmoothScrollWrapper>{children}</SmoothScrollWrapper>
+        {children}
       </body>
     </html>
   );
