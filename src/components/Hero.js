@@ -20,7 +20,7 @@ export default function Hero() {
     const formData = new FormData(e.target);
     const flightNumber = formData.get("flightNumber");
     const travelDate = formData.get("travelDate");
-    const whatsappNumber = formData.get("whatsappNumber");
+    // const whatsappNumber = formData.get("whatsappNumber");
 
     const message = `Hi! I'd like to get flight updates for:
 Flight: ${flightNumber}
@@ -116,17 +116,17 @@ WhatsApp: ${whatsappNumber}`;
               placeholder="Travel Date"
               required
               onClick={handleDateClick}
-              className="max-w-40 flex-1 px-5 py-3 rounded-full sm:rounded-none sm:border-r sm:border-border/20 bg-white border-0 focus:outline-none font-satoshi text-sm cursor-pointer"
+              // className="max-w-40 flex-1 px-5 py-3 rounded-full sm:rounded-none sm:border-r sm:border-border/20 bg-white border-0 focus:outline-none font-satoshi text-sm cursor-pointer"
+              className="max-w-45 flex-1 px-5 py-3 rounded-full sm:rounded-l-none sm:border-r sm:border-border/20 bg-white border-0 focus:outline-none font-satoshi text-sm"
             />
-            <input
+            {/* <input
               type="tel"
               name="whatsappNumber"
               placeholder="Whatsapp Number"
               required
               pattern="[\d\s\-\+\(\)]{10,}"
               title="Enter a valid phone number (minimum 10 digits)"
-              className="max-w-45 flex-1 px-5 py-3 rounded-full sm:rounded-l-none sm:border-r sm:border-border/20 bg-white border-0 focus:outline-none font-satoshi text-sm"
-            />
+            /> */}
             <button
               type="submit"
               className="bg-primary cursor-pointer text-white font-satoshi font-bold py-3 px-8 rounded-full hover:bg-secondary transition-colors whitespace-nowrap"

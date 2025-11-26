@@ -90,7 +90,7 @@ export default function HowItWorks() {
           {steps.map((step, index) => (
             <div key={index} className="flex flex-col items-center text-center">
               {/* Phone Mockup Image */}
-              <div className={`mb-6 relative bg-white px-5 gap-8 flex items-center rounded-2xl ${
+              <div className={`mb-6 relative bg-white px-5 gap-8 w-full flex items-center rounded-2xl ${
                 index === 1 ? 'flex-col pb-5' : 'flex-col-reverse pt-5'
               }`}>
                 <Image
@@ -98,7 +98,7 @@ export default function HowItWorks() {
                   alt={step.title}
                   width={200}
                   height={380}
-                  className="h-30 w-auto"
+                  className="h-40 w-auto"
                 />
                 <h3 className="font-excon font-bold text-xl flex flex-col items-center text-primary">
                   <Image

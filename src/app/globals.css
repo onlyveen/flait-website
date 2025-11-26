@@ -4,11 +4,6 @@
 @import "./styles/Excon_WEB/css/excon.css";
 @import "./styles/Satoshi_WEB/css/satoshi.css";
 
-/* Smooth Scrolling */
-html {
-  scroll-behavior: smooth;
-}
-
 @theme {
   /* Color Palette - Available as utilities (bg-primary, text-accent, etc.) */
   --color-primary: #0640ad;
