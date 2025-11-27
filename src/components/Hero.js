@@ -110,15 +110,24 @@ WhatsApp: ${whatsappNumber}`;
               title="Enter a valid flight number (e.g., AA1234)"
               className=" flex-1 px-5 py-3 text-base rounded-full sm:rounded-r-none sm:border-r sm:border-border/20 bg-white border-0 focus:outline-none font-satoshi "
             />
-            <input
-              type="date"
-              name="travelDate"
-              placeholder="Travel Date"
-              required
-              onClick={handleDateClick}
-              // className="max-w-40 flex-1 px-5 py-3 text-base rounded-full sm:rounded-none sm:border-r sm:border-border/20 bg-white border-0 focus:outline-none font-satoshi text-sm cursor-pointer"
-              className=" flex-1 px-5 py-3 text-base rounded-full sm:rounded-l-none sm:border-r sm:border-border/20 bg-white border-0 focus:outline-none font-satoshi"
-            />
+            <div className="flex-1 relative">
+              <input
+                type="date"
+                name="travelDate"
+                placeholder="Travel Date"
+                required
+                onClick={handleDateClick}
+                className="w-full pl-5 pr-10 py-3 text-base rounded-full sm:rounded-l-none sm:border-r sm:border-border/20 bg-white border-0 focus:outline-none font-satoshi"
+              />
+              <svg
+                className="absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400 pointer-events-none"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+              </svg>
+            </div>
             {/* <input
               type="tel"
               name="whatsappNumber"
