@@ -24,7 +24,7 @@ export default function Features() {
       number: "3",
       title: "Journeys, not flights",
       description:
-        "flAIt automatically groups multi-stop trips into a single journey.",
+        "Flait automatically groups multi-stop trips into a single journey.",
     },
     {
       number: "4",
@@ -86,26 +86,24 @@ export default function Features() {
 
       <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div ref={titleRef} className="text-center mb-10">
-          <h2 className="font-excon font-bold h2 text-primary ">
-            Why Flait
-          </h2>
+          <h2 className="font-excon font-bold h2 text-primary ">Why Flait</h2>
         </div>
 
         <div ref={featuresRef} className="space-y-8">
           {features.map((feature, index) => (
-            <div key={index} className="flex gap-10 items-start">
-              <div className="shrink-0">
+            <div key={index} className="flex gap-10 items-start max-md:px-10 max-md:gap-5">
+              <div className="shrink-0 w-10">
                 <span className="font-excon font-light text-5xl text-primary">
                   {feature.number}
                 </span>
               </div>
-              <h3 className="font-excon w-1/4 font-bold text-xl text-primary mb-2">
-                {feature.title}
-              </h3>
-              <div className="w-2/4 pt-2">
-                <p className="font-satoshi text-black leading-relaxed">
-                  {feature.description}
-                </p>
+              <div className="flex gap-5 max-md:flex-col max-md:gap-2 items-start">
+                <h3 className="font-excon md:min-w-2/5 md:max-w-2/5 font-bold text-xl text-primary">
+                  {feature.title}
+                </h3>
+                  <p className="font-satoshi text-black leading-relaxed">
+                    {feature.description}
+                  </p>
               </div>
             </div>
           ))}

@@ -18,7 +18,7 @@ export default function HowItWorks() {
     {
       title: "Add your flight",
       description:
-        `Text us your flight number on <span class="text-accent font-bold">WhatsApp</span>. flAIt recognizes the airline, cities, times, terminals, and status automatically.`,
+        `Text us your flight number on <span class="text-accent font-bold">WhatsApp</span>. Flait recognizes the airline, cities, times, terminals, and status automatically.`,
       number: "1",
       image: "/landing-page/how-it-works/add-your-flight.png",
       icon: "/landing-page/how-it-works/ico-add-your-flight.svg",
@@ -77,7 +77,7 @@ export default function HowItWorks() {
       className="py-20 bg-primary"
     >
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div ref={titleRef} className="text-center mb-16">
+        <div ref={titleRef} className="text-center mb-10">
           <h2 className="font-excon font-bold h2 text-white mb-2">
             How It Works
           </h2>
@@ -85,12 +85,12 @@ export default function HowItWorks() {
 
         <div
           ref={cardsRef}
-          className="grid md:grid-cols-3 gap-8 lg:gap-12"
+          className="grid md:grid-cols-3 gap-12"
         >
           {steps.map((step, index) => (
             <div key={index} className="flex flex-col items-center text-center">
               {/* Phone Mockup Image */}
-              <div className={`mb-6 relative bg-white px-5 gap-8 w-full flex items-center rounded-2xl ${
+              <div className={`mb-6 relative bg-white px-5 gap-8 md:w-full flex items-center rounded-2xl ${
                 index === 1 ? 'flex-col pb-5' : 'flex-col-reverse pt-5'
               }`}>
                 <Image

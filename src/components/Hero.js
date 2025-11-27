@@ -75,13 +75,13 @@ WhatsApp: ${whatsappNumber}`;
   }, []);
 
   return (
-    <section id="home" className="relative pt-24 lg:pt-40 overflow-hidden">
+    <section id="home" className="relative pt-30 lg:pt-40 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Content - Centered */}
-        <div className="text-center max-w-4xl mx-auto mb-12">
+        <div className="text-center max-w-4xl mx-auto mb-12 max-md:mb-0">
           <h1
             ref={headlineRef}
-            className="font-excon font-bold text-5xl lg:text-6xl leading-tight mb-6"
+            className="font-excon font-bold h1 leading-tight mb-6"
           >
             <span className="text-primary block">Your AI Travel Manager</span>
             <span className="text-text block">on Whatsapp</span>
@@ -99,7 +99,7 @@ WhatsApp: ${whatsappNumber}`;
           <form
             onSubmit={handleSubmit}
             ref={formRef}
-            className="flex flex-col sm:flex-row gap-0 items-stretch justify-self-center mx-auto bg-white rounded-full shadow-lg p-2"
+            className="flex flex-col sm:flex-row gap-0 items-stretch md:justify-self-center mx-auto bg-white rounded-xl max-md:max-w-4/5 md:rounded-full shadow-lg p-4 md:p-2"
           >
             <input
               type="text"
@@ -108,7 +108,7 @@ WhatsApp: ${whatsappNumber}`;
               required
               pattern="[A-Za-z]{2}\s?\d{1,4}"
               title="Enter a valid flight number (e.g., AA1234)"
-              className="max-w-35 flex-1 px-5 py-3 rounded-full sm:rounded-r-none sm:border-r sm:border-border/20 bg-white border-0 focus:outline-none font-satoshi text-sm"
+              className=" flex-1 px-5 py-3 text-base rounded-full sm:rounded-r-none sm:border-r sm:border-border/20 bg-white border-0 focus:outline-none font-satoshi "
             />
             <input
               type="date"
@@ -116,8 +116,8 @@ WhatsApp: ${whatsappNumber}`;
               placeholder="Travel Date"
               required
               onClick={handleDateClick}
-              // className="max-w-40 flex-1 px-5 py-3 rounded-full sm:rounded-none sm:border-r sm:border-border/20 bg-white border-0 focus:outline-none font-satoshi text-sm cursor-pointer"
-              className="max-w-45 flex-1 px-5 py-3 rounded-full sm:rounded-l-none sm:border-r sm:border-border/20 bg-white border-0 focus:outline-none font-satoshi text-sm"
+              // className="max-w-40 flex-1 px-5 py-3 text-base rounded-full sm:rounded-none sm:border-r sm:border-border/20 bg-white border-0 focus:outline-none font-satoshi text-sm cursor-pointer"
+              className=" flex-1 px-5 py-3 text-base rounded-full sm:rounded-l-none sm:border-r sm:border-border/20 bg-white border-0 focus:outline-none font-satoshi"
             />
             {/* <input
               type="tel"
@@ -129,7 +129,7 @@ WhatsApp: ${whatsappNumber}`;
             /> */}
             <button
               type="submit"
-              className="bg-primary cursor-pointer text-white font-satoshi font-bold py-3 px-8 rounded-full hover:bg-secondary transition-colors whitespace-nowrap"
+              className="bg-primary max-md:mt-3 cursor-pointer text-white font-satoshi font-bold py-3 px-8 text-base rounded-full hover:bg-secondary transition-colors whitespace-nowrap"
             >
               Get Updates
             </button>
@@ -138,13 +138,13 @@ WhatsApp: ${whatsappNumber}`;
 
         {/* Illustration Area */}
       </div>
-      <div ref={illustrationRef} className="relative mt-16 flex justify-center">
+      <div ref={illustrationRef} className="relative mt-16 flex justify-center max-md:mt-0">
         <Image
           src="/landing-page/header-illustration.png"
           alt="Flight tracking illustration"
           width={1000}
           height={200}
-          className="w-full h-auto"
+          className="w-[200%] max-w-none h-auto"
           priority
         />
       </div>

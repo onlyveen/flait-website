@@ -69,10 +69,10 @@ export default function CTASection() {
     <section
       ref={sectionRef}
       id="get-started"
-      className="py-12 bg-primary max-w-5xl mx-auto relative overflow-hidden rounded-4xl mb-24 text-center"
+      className="py-12  bg-primary max-w-5xl mx-auto relative overflow-hidden rounded-4xl mb-24 max-md:mb-16 max-md:px-5 max-md:py-10 max-md:mx-5 text-center"
     >
       <div
-        className="flex justify-center absolute right-0 bottom-0"
+        className="flex justify-center absolute -right-5 -bottom-2"
       >
         <Image
           src="/landing-page/cta/whatsapp.svg"
@@ -93,7 +93,7 @@ export default function CTASection() {
         ref={descRef}
         className="font-satoshi text-lg text-white/90 mb-10 max-w-2xl mx-auto"
       >
-        Send us your flight number. That's it. flAIt takes over from there.
+        Send us your flight number. That's it. Flait takes over from there.
       </p>
       <button
         ref={buttonRef}

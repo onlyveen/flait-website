@@ -21,3 +21,47 @@
 }
 
 @import "./styles/text-styles.css";
+
+/* FAQ Content Styles */
+.faq-content p {
+  margin-bottom: 0.75rem;
+}
+
+.faq-content p:last-child {
+  margin-bottom: 0;
+}
+
+.faq-content ul {
+  list-style: none;
+  margin-left: 0;
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
+  padding-left: 0;
+}
+
+.faq-content li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
+}
+
+.faq-content li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--color-primary);
+  font-weight: 700;
+  font-size: 1.2em;
+}
+
+.faq-content strong {
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.faq-content br {
+  display: block;
+  content: "";
+  margin-top: 0.5rem;
+}

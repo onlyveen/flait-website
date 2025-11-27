@@ -72,16 +72,16 @@ export default function Trust() {
 
   return (
     <section ref={sectionRef} id="trust">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-white rounded-3xl rounded-b-none border-b-0 border-4 border-primary px-50 py-15 relative">
-          <div className="flex justify-center lg:justify-start absolute left-0 bottom-0">
+      <div className="max-w-4xl mx-auto px-12 md:px-8">
+        <div className="bg-white rounded-3xl rounded-b-none overflow-hidden border-b-0 border-4 border-primary max-md:p-5 px-50 py-15 relative">
+          <div className="flex justify-start md:justify-center absolute md:-left-10 md:-bottom-10  max-md:relative max-md:mb-5">
             <div ref={illustrationRef} className="relative">
               <Image
                 src="/landing-page/trust/reliability-illust.svg"
                 alt="Reliability illustration"
                 width={300}
                 height={300}
-                className="w-50 h-50"
+                className="w-50 h-50 max-md:w-30 max-md:h-30 "
               />
             </div>
           </div>
@@ -93,7 +93,7 @@ export default function Trust() {
               Built with Reliability
             </h2>
 
-            <div ref={iconsRef} className="space-y-6">
+            <div ref={iconsRef} className="space-y-2">
               {features.map((feature, index) => (
                 <div key={index} className="flex gap-2 items-start">
                     <Image
@@ -103,7 +103,7 @@ export default function Trust() {
                       height={24}
                       className="w-12 h-12"
                     />
-                  <p className="font-satoshi text-black leading-relaxed pt-2">
+                  <p className="font-satoshi text-black text-regular leading-relaxed pt-2">
                     {feature.text}
                   </p>
                 </div>
