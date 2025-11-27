@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { gsap, animations, gsapConfig } from "@/utils/gsapConfig";
 
@@ -9,9 +9,38 @@ export default function Hero() {
   const descRef = useRef(null);
   const formRef = useRef(null);
   const illustrationRef = useRef(null);
+  const dateInputRef = useRef(null);
+  const datePlaceholderRef = useRef(null);
+  const [isIOSorSafari, setIsIOSorSafari] = useState(false);
+
+  useEffect(() => {
+    // Detect iOS or Safari
+    const ua = navigator.userAgent;
+    const isIOS = /iPad|iPhone|iPod/.test(ua);
+    const isSafari = /^((?!chrome|android).)*safari/i.test(ua);
+    setIsIOSorSafari(isIOS || isSafari);
+  }, []);
 
   const handleDateClick = (e) => {
     e.currentTarget.showPicker?.();
+  };
+
+  const handleDateChange = (e) => {
+    if (isIOSorSafari && datePlaceholderRef.current) {
+      datePlaceholderRef.current.style.display = e.target.value ? 'none' : 'block';
+    }
+  };
+
+  const handleDateFocus = () => {
+    if (isIOSorSafari && datePlaceholderRef.current) {
+      datePlaceholderRef.current.style.display = 'none';
+    }
+  };
+
+  const handleDateBlur = (e) => {
+    if (isIOSorSafari && datePlaceholderRef.current && !e.target.value) {
+      datePlaceholderRef.current.style.display = 'block';
+    }
   };
 
   const handleSubmit = (e) => {
@@ -20,12 +49,10 @@ export default function Hero() {
     const formData = new FormData(e.target);
     const flightNumber = formData.get("flightNumber");
     const travelDate = formData.get("travelDate");
-    // const whatsappNumber = formData.get("whatsappNumber");
 
     const message = `Hi! I'd like to get flight updates for:
 Flight: ${flightNumber}
-Date: ${travelDate}
-WhatsApp: ${whatsappNumber}`;
+Date: ${travelDate}`;
 
     const whatsappPhoneNumber = "14646669094"; // +1 (464) 666-9094
     const encodedMessage = encodeURIComponent(message);
@@ -108,25 +135,31 @@ WhatsApp: ${whatsappNumber}`;
               required
               pattern="[A-Za-z]{2}\s?\d{1,4}"
               title="Enter a valid flight number (e.g., AA1234)"
-              className=" flex-1 px-5 py-3 text-base rounded-full sm:rounded-r-none sm:border-r sm:border-border/20 bg-white border-0 focus:outline-none font-satoshi "
+              className=" flex-1 md:px-5 py-3 text-base rounded-full sm:rounded-r-none sm:border-r sm:border-border/20 bg-white border-0 focus:outline-none font-satoshi "
             />
-            <div className="flex-1 relative">
+            <div className="flex-1 relative max-md:border-t border-border">
               <input
+                ref={dateInputRef}
                 type="date"
                 name="travelDate"
-                placeholder="Travel Date"
                 required
                 onClick={handleDateClick}
-                className="w-full pl-5 pr-10 py-3 text-base rounded-full sm:rounded-l-none sm:border-r sm:border-border/20 bg-white border-0 focus:outline-none font-satoshi"
+                onChange={handleDateChange}
+                onFocus={handleDateFocus}
+                onBlur={handleDateBlur}
+                className="w-full md:px-5 py-3 text-base rounded-full sm:rounded-l-none sm:border-r sm:border-border/20 bg-white border-0 focus:outline-none font-satoshi"
+                style={{
+                  colorScheme: 'light',
+                  WebkitAppearance: 'none',
+                  MozAppearance: 'none'
+                }}
               />
-              <svg
-                className="absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400 pointer-events-none"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
+              <span
+                ref={datePlaceholderRef}
+                className="absolute left-0 md:left-5 top-1/2 -translate-y-1/2 text-base text-gray-400 font-satoshi pointer-events-none select-none"
               >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-              </svg>
+                Travel Date
+              </span>
             </div>
             {/* <input
               type="tel"
