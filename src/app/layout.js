@@ -1,4 +1,5 @@
 import "./globals.css";
+import SmoothCursor from "@/components/SmoothCursor";
 
 export const metadata = {
   title: "Flait - Your AI Travel Manager on WhatsApp",
@@ -12,6 +13,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className="antialiased bg-bg">
+        <SmoothCursor />
         {children}
       </body>
     </html>
