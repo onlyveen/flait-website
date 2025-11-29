@@ -111,20 +111,30 @@ Date: ${travelDate}`;
             ref={headlineRef}
             className="font-excon font-bold h1 leading-tight mb-6"
           >
-            <span className="text-primary block">
-              {'Your AI Travel Manager'.split('').map((char, i) => (
-                <span key={i} className="inline-block blur-char">
-                  {char === ' ' ? '\u00A0' : char}
+            <div className="text-primary">
+              {'Your AI Travel Manager'.split(' ').map((word, wordIndex, words) => (
+                <span key={wordIndex} className="inline-block whitespace-nowrap">
+                  {word.split('').map((char, charIndex) => (
+                    <span key={charIndex} className="inline-block blur-char">
+                      {char}
+                    </span>
+                  ))}
+                  {wordIndex < words.length - 1 && <span className="inline-block blur-char">&nbsp;</span>}
                 </span>
               ))}
-            </span>
-            <span className="text-text block">
-              {'on Whatsapp'.split('').map((char, i) => (
-                <span key={i} className="inline-block blur-char">
-                  {char === ' ' ? '\u00A0' : char}
+            </div>
+            <div className="text-text">
+              {'on Whatsapp'.split(' ').map((word, wordIndex, words) => (
+                <span key={wordIndex} className="inline-block whitespace-nowrap">
+                  {word.split('').map((char, charIndex) => (
+                    <span key={charIndex} className="inline-block blur-char">
+                      {char}
+                    </span>
+                  ))}
+                  {wordIndex < words.length - 1 && <span className="inline-block blur-char">&nbsp;</span>}
                 </span>
               ))}
-            </span>
+            </div>
           </h1>
 
           <p
@@ -139,7 +149,7 @@ Date: ${travelDate}`;
           <form
             onSubmit={handleSubmit}
             ref={formRef}
-            className="flex flex-col sm:flex-row gap-0 items-stretch md:justify-self-center mx-auto bg-white rounded-xl max-md:max-w-4/5 md:rounded-full shadow-lg p-4 md:p-2"
+            className="flex max-md:mb-15 flex-col sm:flex-row gap-0 items-stretch md:justify-self-center mx-auto bg-white rounded-xl max-md:max-w-4/5 md:rounded-full shadow-lg p-0 md:p-2"
           >
             <input
               type="text"
@@ -148,7 +158,7 @@ Date: ${travelDate}`;
               required
               pattern="[A-Za-z]{2}\s?\d{1,4}"
               title="Enter a valid flight number (e.g., AA1234)"
-              className=" flex-1 md:px-5 py-3 text-base rounded-full sm:rounded-r-none sm:border-r sm:border-border/20 bg-white border-0 focus:outline-none font-satoshi "
+              className=" flex-1 px-5 py-3 text-base max-md:text-xl max-md:py-4 rounded-full sm:rounded-r-none sm:border-r sm:border-border/20 bg-white border-0 focus:outline-none font-satoshi "
             />
             <div className="flex-1 relative max-md:border-t border-border">
               <input
@@ -160,7 +170,7 @@ Date: ${travelDate}`;
                 onChange={handleDateChange}
                 onFocus={handleDateFocus}
                 onBlur={handleDateBlur}
-                className="w-full md:px-5 py-3 text-base rounded-full sm:rounded-l-none sm:border-r sm:border-border/20 bg-white border-0 focus:outline-none font-satoshi"
+                className="w-full px-5 py-3 text-base max-md:text-xl max-md:py-4 rounded-full sm:rounded-l-none sm:border-r sm:border-border/20 bg-white border-0 focus:outline-none font-satoshi"
                 style={{
                   colorScheme: 'light',
                   WebkitAppearance: 'none',
@@ -169,7 +179,7 @@ Date: ${travelDate}`;
               />
               <span
                 ref={datePlaceholderRef}
-                className="absolute left-0 md:left-5 top-1/2 -translate-y-1/2 text-base text-gray-400 font-satoshi pointer-events-none select-none"
+                className="absolute left-5 top-1/2 max-md:text-xl max-md:py-4 -translate-y-1/2 text-base text-gray-400 font-satoshi pointer-events-none select-none"
               >
                 Travel Date
               </span>
@@ -184,7 +194,7 @@ Date: ${travelDate}`;
             /> */}
             <button
               type="submit"
-              className="bg-primary max-md:mt-3 cursor-pointer text-white font-satoshi font-bold py-3 px-8 text-base rounded-full hover:bg-secondary transition-colors whitespace-nowrap"
+              className="bg-primary max-md:mt-0 max-md:-mx-5 cursor-pointer text-white font-satoshi font-bold max-md:py-5 max-md:text-xl py-3 px-8 text-base rounded-full hover:bg-secondary transition-colors whitespace-nowrap"
             >
               Get Updates
             </button>
