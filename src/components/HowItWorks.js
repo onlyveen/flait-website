@@ -43,6 +43,18 @@ export default function HowItWorks() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
+      // Section expansion animation
+      gsap.to(sectionRef.current, {
+        maxWidth: '100vw',
+        borderRadius: '0px',
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: 'top bottom',
+          end: '70% bottom',
+          scrub: 1,
+        },
+      });
+
       // Title animation
       gsap.from(titleRef.current, {
         ...animations.fadeUp,
@@ -74,9 +86,9 @@ export default function HowItWorks() {
     <section
       ref={sectionRef}
       id="how-it-works"
-      className="py-20 bg-primary"
+      className="py-20 bg-primary max-w-5xl mx-auto rounded-[60px]"
     >
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
         <div ref={titleRef} className="text-center mb-10">
           <h2 className="font-excon font-bold h2 text-white mb-2">
             How It Works

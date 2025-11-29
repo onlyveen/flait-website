@@ -13,6 +13,7 @@ export default function Navbar() {
 
   // Navigation items - single source of truth
   const navItems = [
+    { href: "/#about", label: "About" },
     { href: "/#how-it-works", label: "How it Works" },
     { href: "/#why", label: "Why Flait" },
     { href: "/#trust", label: "Trust" },

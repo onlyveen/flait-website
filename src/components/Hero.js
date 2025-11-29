@@ -63,12 +63,13 @@ Date: ${travelDate}`;
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Headline animation
-      gsap.from(headlineRef.current.children, {
-        ...animations.fadeUp,
-        duration: gsapConfig.duration,
-        stagger: 0.2,
-        ease: gsapConfig.ease,
+      // Headline blur text animation
+      gsap.from(headlineRef.current.querySelectorAll('.blur-char'), {
+        filter: 'blur(10px)',
+        opacity: 0,
+        duration: 0.8,
+        stagger: 0.03,
+        ease: 'power2.out',
       });
 
       // Description animation
@@ -110,8 +111,20 @@ Date: ${travelDate}`;
             ref={headlineRef}
             className="font-excon font-bold h1 leading-tight mb-6"
           >
-            <span className="text-primary block">Your AI Travel Manager</span>
-            <span className="text-text block">on Whatsapp</span>
+            <span className="text-primary block">
+              {'Your AI Travel Manager'.split('').map((char, i) => (
+                <span key={i} className="inline-block blur-char">
+                  {char === ' ' ? '\u00A0' : char}
+                </span>
+              ))}
+            </span>
+            <span className="text-text block">
+              {'on Whatsapp'.split('').map((char, i) => (
+                <span key={i} className="inline-block blur-char">
+                  {char === ' ' ? '\u00A0' : char}
+                </span>
+              ))}
+            </span>
           </h1>
 
           <p

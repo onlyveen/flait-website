@@ -1,5 +1,6 @@
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
+import About from '@/components/About';
 import HowItWorks from '@/components/HowItWorks';
 import Features from '@/components/Features';
 import Trust from '@/components/Trust';
@@ -14,6 +15,7 @@ export default function Home() {
       <Navbar />
       <PageTransition>
           <Hero />
+          <About />
           <HowItWorks />
           <Features />
           <Trust />
