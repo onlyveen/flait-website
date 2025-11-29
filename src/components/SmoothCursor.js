@@ -7,11 +7,13 @@ export default function SmoothCursor() {
   const cursorRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [trail, setTrail] = useState([]);
 
   // Store position and rotation
   const mousePos = useRef({ x: 0, y: 0 });
   const cursorPos = useRef({ x: 0, y: 0 });
   const rotation = useRef(0);
+  const lastTrailTime = useRef(0);
 
   useEffect(() => {
     // Check if device is mobile
@@ -76,6 +78,21 @@ export default function SmoothCursor() {
         rotation.current += diff * 0.15;
       }
 
+      // Add trail point every 30ms
+      const now = Date.now();
+      if (now - lastTrailTime.current > 30 && velocity > 0.1) {
+        lastTrailTime.current = now;
+        setTrail(prev => [...prev, {
+          x: cursorPos.current.x,
+          y: cursorPos.current.y,
+          timestamp: now,
+          id: Math.random()
+        }]);
+      }
+
+      // Clean up old trail points (older than 400ms)
+      setTrail(prev => prev.filter(dot => now - dot.timestamp < 300));
+
       // Apply transform (center the 40x40 cursor)
       cursorRef.current.style.transform = `translate(${cursorPos.current.x - 20}px, ${cursorPos.current.y - 20}px) rotate(${Math.round(rotation.current)}deg)`;
 
@@ -110,6 +127,51 @@ export default function SmoothCursor() {
           cursor: none !important;
         }
       `}</style>
+
+      {/* Trail line - Smooth curve */}
+      {trail.length > 1 && (
+        <svg
+          className="fixed top-0 left-0 pointer-events-none"
+          style={{
+            width: '100vw',
+            height: '100vh',
+            zIndex: 9998
+          }}
+        >
+          <path
+            d={(() => {
+              if (trail.length < 2) return '';
+
+              let path = `M ${trail[0].x},${trail[0].y}`;
+
+              for (let i = 1; i < trail.length; i++) {
+                const curr = trail[i];
+                const prev = trail[i - 1];
+
+                if (i < trail.length - 1) {
+                  const next = trail[i + 1];
+                  const cpx = curr.x;
+                  const cpy = curr.y;
+                  const endX = (curr.x + next.x) / 2;
+                  const endY = (curr.y + next.y) / 2;
+                  path += ` Q ${cpx},${cpy} ${endX},${endY}`;
+                } else {
+                  path += ` L ${curr.x},${curr.y}`;
+                }
+              }
+
+              return path;
+            })()}
+            fill="none"
+            stroke="#0640AD"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeDasharray="10,10"
+            opacity="0.2"
+          />
+        </svg>
+      )}
 
       {/* Custom cursor */}
       <div
