@@ -30,8 +30,8 @@ export default function About() {
     <section ref={sectionRef} id="about" className="py-20 bg-white">
       <div className="max-w-3xl mx-auto px-4 px-8">
         <div className="flex flex-col items-center gap-4 text-center">
-          <p ref={aboutTextRef} className="text-primary text-2xl font-semibold ax md:text-3xl leading-10 md:leading-12">
-            {`flAIt is an AI-powered travel assistant that tracks your flights in real time and delivers every important update directly on WhatsApp. From check-in reminders and gate changes to delays, cancellations, and landing updates, flAIt keeps you informed at every step. No app installs, no logins, no clutter — just fast, accurate, essential travel information. Designed for smooth, stress-free journeys anywhere in the world.`
+          <p ref={aboutTextRef} className="text-primary text-2xl font-semibold text-2xl md:text-3xl leading-10 md:leading-12">
+            {`Flait is an AI-powered travel assistant that tracks your flights in real time and delivers every important update directly on WhatsApp. From check-in reminders and gate changes to delays, cancellations, and landing updates, Flait keeps you informed at every step. No app installs, no logins, no clutter — just fast, accurate, essential travel information. Designed for smooth, stress-free journeys anywhere in the world.`
               .split(' ')
               .map((word, i) => (
                 <span key={i} className="inline-block blur-word">
