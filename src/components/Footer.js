@@ -1,5 +1,8 @@
+"use client";
+
 import Link from 'next/link';
 import Image from 'next/image';
+import AnimatedText from '@/components/AnimatedText';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -24,19 +27,19 @@ export default function Footer() {
             href="/terms"
             className="font-satoshi text-white/90 hover:text-white transition-colors"
           >
-            Terms
+            <AnimatedText text="Terms" />
           </Link>
           <Link
             href="/privacy"
             className="font-satoshi text-white/90 hover:text-white transition-colors"
           >
-            Privacy
+            <AnimatedText text="Privacy" />
           </Link>
           <a
             href="mailto:support@flait.com"
             className="font-satoshi text-white/90 hover:text-white transition-colors"
           >
-            Support
+            <AnimatedText text="Support" />
           </a>
         </div>
 

@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import Image from "next/image";
 import { gsap, animations, scrollTriggerDefaults } from "@/utils/gsapConfig";
+import AnimatedText from "./AnimatedText";
 
 export default function CTASection() {
   const sectionRef = useRef(null);
@@ -101,9 +102,9 @@ export default function CTASection() {
           const whatsappUrl = "https://wa.me/14646669094?text=Hi";
           window.open(whatsappUrl, "_blank");
         }}
-        className="bg-accent cursor-pointer text-text font-satoshi font-bold py-4 px-10 rounded-full hover:opacity-90 transition-opacity shadow-xl inline-block"
+        
       >
-        Get Updates
+        <AnimatedText text="Get Updates" className="bg-accent cursor-pointer text-text font-satoshi font-bold py-4 px-10 rounded-full hover:opacity-90 transition-opacity shadow-xl"/>
       </button>
     </section>
   );

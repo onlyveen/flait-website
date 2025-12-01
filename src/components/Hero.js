@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { gsap, animations, gsapConfig } from "@/utils/gsapConfig";
+import AnimatedText from "./AnimatedText";
 
 export default function Hero() {
   const headlineRef = useRef(null);
@@ -194,9 +195,11 @@ Date: ${travelDate}`;
             /> */}
             <button
               type="submit"
-              className="bg-primary max-md:mt-0 max-md:-mx-5 cursor-pointer text-white font-satoshi font-bold max-md:py-5 max-md:text-xl py-3 px-8 text-base rounded-full hover:bg-secondary transition-colors whitespace-nowrap"
+              className="flex items-center"
             >
-              Get Updates
+                
+              <AnimatedText text="Get Updates" className="bg-primary max-md:mt-0 max-md:-mx-5 cursor-pointer text-white font-satoshi font-bold max-md:py-5 max-md:text-xl py-3 px-8 text-base rounded-full hover:bg-secondary transition-colors whitespace-nowrap"/>
+              
             </button>
           </form>
         </div>

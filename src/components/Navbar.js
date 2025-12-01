@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from 'react';
 import { usePathname } from 'next/navigation';
 import Image from 'next/image';
 import { gsap } from '@/utils/gsapConfig';
+import AnimatedText from '@/components/AnimatedText';
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -111,32 +112,32 @@ export default function Navbar() {
           </div>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-2">
             {navItems.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
                 onClick={(e) => handleNavClick(e, item.href)}
-                className="font-satoshi font-medium text-text hover:text-primary transition-colors"
+                className="relative font-satoshi font-medium text-text px-4 py-2 rounded-full hover:text-primary transition-colors inline-block"
               >
-                {item.label}
+                <AnimatedText text={item.label} />
               </a>
             ))}
           </div>
             <button
               onClick={handleWhatsApp}
-              className="bg-accent cursor-pointer text-text font-satoshi font-bold py-2.5 px-6 rounded-full hover:opacity-90 transition-opacity hidden md:flex"
+              
             >
-              Get Updates
+              <AnimatedText text="Get Updates" className="bg-accent cursor-pointer text-text font-satoshi font-bold py-2.5 px-6 rounded-full hover:opacity-90 transition-opacity hidden md:flex" />
             </button>
 
           {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center gap-3">
             <button
               onClick={handleWhatsApp}
-              className="bg-accent cursor-pointer text-text font-satoshi font-bold py-2 px-4 rounded-full hover:opacity-90 transition-opacity text-sm"
+              
             >
-              Get Updates
+              <AnimatedText text="Get Updates" className="bg-accent cursor-pointer text-text font-satoshi font-bold py-2 px-4 rounded-full hover:opacity-90 transition-opacity text-sm"/>
             </button>
             <button
               onClick={toggleMobileMenu}
@@ -162,15 +163,15 @@ export default function Navbar() {
           style={{ display: 'none', opacity: 0 }}
           className="md:hidden bg-white/95 backdrop-blur-md rounded-2xl shadow-lg mt-2 mb-4 overflow-hidden"
         >
-          <div className="flex flex-col py-4">
+          <div className="flex flex-col py-4 px-2 gap-1">
             {navItems.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
                 onClick={(e) => handleNavClick(e, item.href)}
-                className="font-satoshi font-medium text-text hover:text-primary hover:bg-primary/5 transition-colors px-6 py-3"
+                className="relative font-satoshi font-medium text-text px-6 py-3 rounded-full hover:bg-primary/10 hover:text-primary transition-colors inline-block"
               >
-                {item.label}
+                <AnimatedText text={item.label} />
               </a>
             ))}
           </div>
