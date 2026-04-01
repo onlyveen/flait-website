@@ -140,7 +140,7 @@ Date: ${travelDate}`;
 
           <p
             ref={descRef}
-            className="font-satoshi text-base lg:text-lg text-gray-600 mb-10 max-w-2xl mx-auto"
+            className="font-satoshi text-sm md:text-lg text-gray-600 mb-10 max-w-2xl mx-auto"
           >
             Live flight updates, check-in reminders, gate changes, delays, and
             smart travel assistance — all inside WhatsApp.
@@ -210,7 +210,7 @@ Date: ${travelDate}`;
       {/* Crop container: height = half globe width (37.5vw = 75vw / 2) */}
       <div
         ref={illustrationRef}
-        className="globe-crop relative mt-8 max-md:mt-4 overflow-hidden"
+        className="globe-crop relative -mt-8 overflow-hidden"
       >
         {/* Globe: 1.5× current size, centered, anchored to top */}
         <div
