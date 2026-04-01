@@ -124,20 +124,21 @@ export default function Navbar() {
               </a>
             ))}
           </div>
-            <button
-              onClick={handleWhatsApp}
-              
-            >
-              <AnimatedText text="Get Updates" className="bg-accent cursor-pointer text-text font-satoshi font-bold py-2.5 px-6 rounded-full hover:opacity-90 transition-opacity hidden md:flex" />
-            </button>
+          <button
+            onClick={handleWhatsApp}
+            className='max-md:hidden'
+
+          >
+            <AnimatedText text="Get Updates" className="bg-accent cursor-pointer text-text font-satoshi font-bold py-2.5 px-6 rounded-full hover:opacity-90 transition-opacity hidden md:flex" />
+          </button>
 
           {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center gap-3">
             <button
               onClick={handleWhatsApp}
-              
+
             >
-              <AnimatedText text="Get Updates" className="bg-accent cursor-pointer text-text font-satoshi font-bold py-2 px-4 rounded-full hover:opacity-90 transition-opacity text-sm"/>
+              <AnimatedText text="Get Updates" className="bg-accent cursor-pointer text-text font-satoshi font-bold py-2 px-4 rounded-full hover:opacity-90 transition-opacity text-sm" />
             </button>
             <button
               onClick={toggleMobileMenu}
